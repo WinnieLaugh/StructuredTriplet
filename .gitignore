@@ -1,0 +1,11 @@
+.vscode
+.history
+*__pycache__
+
+# directories
+checkpoints/
+*/__pycache__/
+
+# checkpoint paths
+*.pt
+*.log
