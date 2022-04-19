@@ -68,8 +68,6 @@ Options:
 ### Model Weights
 
 As part of our work, we provide the trained model at the link below: 
-
-Segmentation and Classification:
 - [checkpoint](https://drive.google.com/file/d/1-z3ZbSeNN6I_foJmRC0Wgo1NJ0Pt9d_t/view?usp=sharing)
 
 
