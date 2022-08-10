@@ -38,15 +38,15 @@ Below are the main directories in the repository:
 ## Training
 
 ###  Dataset preparation
-- Download our dataset [Link TBA] and place it in a local accessible directory, e.g., /local/data
+- Download our [dataset](dataset/LarSPI/README.md) and place it in a local accessible directory, e.g., /dataset/LarSPI
 - Download the annotated dataset to evaluate on, e.g. panNuke or CoNSeP
 
 ### Usage and Options
 
 Usage: <br />
 ```
-python tools/byol_warmup.py --root /local/data
-python tools/train.py --root /local/data
+python tools/byol_warmup.py --root /dataset/LarSPI
+python tools/train.py --root /dataset/LarSPI
 ```
 
 Options:
@@ -74,7 +74,7 @@ As part of our work, we provide the trained model at the link below:
 
 ### Usage and Options
 ```
-  python tools/train.py --root_eval /local/data
+  python tools/train.py --root_eval /dataset/panNuke
 ```
 
 
@@ -104,6 +104,9 @@ Below we report the difference in accuracy of different classification methods a
 | Ours       | 0.7720     | 0.7659     | 0.7684    |0.7230     | 0.6678     | 0.6838    |
 
 
+## Acknowledgement
+Our code on the byol branch is modified from [byol-pytorch](https://github.com/lucidrains/byol-pytorch).
+
 
 
 ## Citation
@@ -120,6 +123,7 @@ Citation TBA
 
 ## License
 
-This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details. 
+The dataset provided here is for research purposes only. Commercial use is not allowed. The data is held under the following license:
+[Attribution-NonCommercial-ShareAlike 4.0 International](https://creativecommons.org/licenses/by-nc-sa/4.0/)
 
 
