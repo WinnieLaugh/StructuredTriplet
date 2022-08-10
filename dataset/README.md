@@ -1,8 +1,8 @@
 # LarSPI
 
 As training a good feature extraction model requires a large variety of data, we prepared a large-scale unlabeled dataset(LarSPI) by reorganizing the whole slide images in TCGA. We kept only
- the whole slide images(WSI) at 40× magnification. This is because the size of the nuclei matters a lot in classification, and the mixing of magnifications may corrupt the classification model. We
-  randomly cropped a foreground patch of size 1024 × 1024 from each one of the selected WSIs and manually reviewed them to remove those of very poor quality, e.g., the ones with severe stains. We
+ the whole slide images (WSI) at 40× magnification. This is because the size of the nuclei matters a lot in classification, and the mixing of magnifications may corrupt the classification model. We
+  randomly cropped a foreground patch of size 1024 × 1024 from each selected WSIs and manually reviewed them to remove those of very poor quality, e.g., those with severe stains. We
    then used the trained [HoVer-Net](https://github.com/vqdang/hover_net) to detect and segment the nucleus instances in the remaining patches. Finally, 20,187 high-quality patches of size 1024 × 1024, each from a different WSI
    , accompanied by its nucleus mask, make up our dataset LarSPI. Note that we also preserve the cancer types and slide types in the filenames, following the TCGA dataset. The size of our
     dataset is very large compared to other existing datasets such as [PanNuke](https://jgamper.github.io/PanNukeDataset/) or [CoNSeP](https://github.com/vqdang/hover_net). Details of our dataset and a comparison between our dataset
@@ -18,9 +18,9 @@ As training a good feature extraction model requires a large variety of data, we
 ## Download Link
 We provide two download links here for the LarSPI dataset.
 
-[Onedrive]()
+[Onedrive](https://connecthkuhk-my.sharepoint.com/:f:/g/personal/wenhua00_connect_hku_hk/Es00Ck815j1CgUEq8joixWABUivMT2wvC-8gnt_fH2K4Aw?e=GiDF1F)
 
-[BaiduDisk]()
+[BaiduDisk](https://pan.baidu.com/s/1WBUFxA6nsiEB6VwWpUj6OA?pwd=111n)
 
 ## Repository Structure
 
@@ -34,7 +34,7 @@ Below are the main directories in the repository:
 ## Usage and Options
 ### Mask format
 The masks in the *mask* folder are numpy arrays of size 1024x1024. Each mask is a pixel-wise correspondense to the image patch of the same name in the *imgs* folder. We also include the
- *draw_overlay.py* as an example to show how the data can be used.
+ *draw_overlay.py* as an example to show how to use this data.
  
 ### Cancer Types
 The cancer types are indicated by the folder names in the *imgs* folder and the *mask* folder. They are abbreviation for 32 different types of diseases. 
@@ -59,12 +59,12 @@ The cancer types are indicated by the folder names in the *imgs* folder and the 
 |luad_tcga   |Lung adenocarcinoma|uvm_tcga |Uveal Melanoma|
 
 ### Slide Types
-The image filenames contains the information whether the slide is frozen or Formalin-Fixed Paraffin-Embedded.
+The image filenames contains the information of whether the slide is frozen or Formalin-Fixed Paraffin-Embedded.
 For example
 
 TCGA-OR-A5J1-01A-01-**TS**1.CFE08710-54B8-45B0-86AE-500D6E36D8A5_8192_76800_0.248.png
 
-shows that this patch is from a frozen slide. The table for the slide types are as below.
+shows that this patch is from a frozen slide. The table for the slide types is as below.
 
 |Abbreviation|Slide Type| Abbreviation|Slide Type|
 | -----------|--------- | -----------|-----------|
