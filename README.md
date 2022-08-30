@@ -114,7 +114,15 @@ Our code on the byol branch is modified from [byol-pytorch](https://github.com/l
 If any part of this code is used, please give appropriate citation to our paper. <br />
 
 ```
-Citation TBA
+@ARTICLE{9869632,
+  author={Zhang, Wenhua and Zhang, Jun and Yang, Sen and Wang, Xiyue and Yang, Wei and Huang, Junzhou and Wang, Wenping and Han, Xiao},
+  journal={IEEE Transactions on Medical Imaging}, 
+  title={Knowledge-Based Representation Learning for Nucleus Instance Classification from Histopathological Images}, 
+  year={2022},
+  volume={},
+  number={},
+  pages={1-1},
+  doi={10.1109/TMI.2022.3201981}}
 ```
 
 ## Authors
