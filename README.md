@@ -88,22 +88,6 @@ Results of different classification methods on histopathological patches of 40 i
 
 
 
-## Comparison
-
-Below we report the difference in accuracy of different classification methods at 40x slide scale. 
-
-|            | PanNuke    |            |           | CoNSeP    |            |           |
-| -----------|----------- | -----------|-----------|-----------|------------|-----------|
-|            | Precision  | Recall     | F1        |Precision  | Recall     |F1         |
-| SimCLR     | 0.7102     | 0.6947     | 0.6999    |0.5879     | 0.6400     | 0.6550    |
-| Moco       | 0.6190     | 0.5840     | 0.5962    |0.6262     | 0.5632     | 0.5853    |
-| Moco v2    | 0.6224     | 0.6086     | 0.6117    |0.5704     | 0.5352     | 0.5430    |
-| BYOL       | 0.6582     | 0.5910     | 0.6121    |0.6223     | 0.5402     | 0.5713    |
-| ViT        | 0.7403     | 0.7215     | 0.7271    |0.5910     | 0.5717     | 0.5796    |
-| BiT        | 0.7301     | 0.7139     | 0.7191    |0.6780     | 0.6430     | 0.6578    |
-| Ours       | 0.7720     | 0.7659     | 0.7684    |0.7230     | 0.6678     | 0.6838    |
-
-
 ## Acknowledgement
 Our code on the byol branch is modified from [byol-pytorch](https://github.com/lucidrains/byol-pytorch).
 
