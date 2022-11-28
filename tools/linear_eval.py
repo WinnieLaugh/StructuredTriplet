@@ -1,20 +1,21 @@
+import torch
 from torch import nn
-from torch.utils.tensorboard import SummaryWriter
+from argparse import ArgumentParser
+import numpy as np
 
 from sklearn.metrics import f1_score
 from sklearn.metrics import recall_score
 from sklearn.metrics import precision_score
 
+import sys
 sys.path.append('./')
 from dataset.dataset_linear import LinearEvalSingleDataset
-from dataset.dataset import TripletSuperSSDatasetAug224
 from models.model import TripletSupervisedBYOLModel, Resnet224Model
 from utils.utils import get_features, create_data_loaders_from_arrays
 
 
 parser = ArgumentParser()
-parser.add_argument("--root", type=str, help="root directory of the datasets")
-parser.add_argument("--root_eval", type=str, help="root directory of the evaluation datasets")
+parser.add_argument("--root_eval", type=str, default="")
 parser.add_argument("--name", type=str, default="SelSRL", help="name of experiment")
 parser.add_argument("--byol_name",  type=str, default="byol_warmup", help="name of pretrained byol")
 parser.add_argument("--port", type=str, default="12353", help="port of distributed")
@@ -24,12 +25,7 @@ parser.add_argument("--lr", type=float, default=1e-4, help="learning rate")
 parser.add_argument("--batch_size", type=int, default=512, help="batch size")
 parser.add_argument("--max_epoch", type=int, default=300, help="max epoch number")
 parser.add_argument("--linear_max_epoch", type=int, default=500, help="input dimension")
-
 parser.add_argument("--resnet", type=str, default="resnet18", help="name of resnet used")
-parser.add_argument("--alpha", type=float, default="1.0", help="alpha of triplet loss")
-parser.add_argument("--beta", type=float, default="1.0", help="beta of supervised loss")
-parser.add_argument('--resume', default='', type=str, metavar='PATH',
-                    help='path to latest checkpoint (default: none)')
 
 args = parser.parse_args()
 
@@ -60,15 +56,14 @@ def linear_eval_train(dataset_idx):
     resnet = Resnet224Model(input_dim=4, model_name=args.resnet)
     learner = TripletSupervisedBYOLModel(net=resnet, hidden_layer='avgpool')
 
-    checkpoint_path = "checkpoints/{}/{}/improved-net_{}.pt".format(name, 
-                                                                args.resnet, 
-                                                                args.max_epoch-1)
+    checkpoint_path = "checkpoints/improved-net_299.pt"
     learner.load_state_dict(torch.load(checkpoint_path, map_location='cuda:{}'.format(0)))
     model = learner.online_encoder
 
     model.eval()
     model.to(device)
 
+    print("model loaded")
     x_train, y_train, x_test, y_test =\
         get_features(model, imagenet_dataloader_train, imagenet_dataloader_test, device)
     train_loader, test_loader = create_data_loaders_from_arrays(x_train, y_train, x_test, y_test,

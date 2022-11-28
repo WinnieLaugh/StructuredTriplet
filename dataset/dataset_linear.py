@@ -30,7 +30,7 @@ class LinearEvalSingleDataset(Dataset):
     """
     def __init__(self, root_dir, dataset_idx, split_name="train"):
         self.root_dir = root_dir
-        dataset_names = ["CoNSeP", "PanNuke"]
+        dataset_names = ["CoNSeP", "panNuke"]
         self.dataset_name = dataset_names[dataset_idx]
 
         dataset_name = dataset_names[dataset_idx]
