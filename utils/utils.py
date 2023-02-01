@@ -64,7 +64,7 @@ class MyRandomResizeCropImgMask(torch.nn.Module):
         self.img_size = img_size
 
     def forward(self, img):
-        width, height = TF._get_image_size(img)
+        width, height = TF.get_image_size(img)
         w = 224
         h = 224
 
